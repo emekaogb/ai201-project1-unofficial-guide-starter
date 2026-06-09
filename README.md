@@ -14,6 +14,8 @@
      Example: "Student reviews of CS professors at [university] — useful because official
      course descriptions don't reflect teaching style, exam difficulty, or workload." -->
 
+The domain is computer science students navigating lower-level and upper-level courses at the University of Maryland.
+
 ---
 
 ## Document Sources
@@ -22,18 +24,19 @@
      Be specific: include URLs, subreddit names, forum thread titles, or file names.
      Aim for variety — sources that together cover different subtopics or perspectives. -->
 
-| # | Source | Type | URL or file path |
-|---|--------|------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| # | Source | Description | URL or location |
+|---|--------|-------------|-----------------|
+| 1 | Reddit (r/UMD) Wiki Guide for UMD CS Students | Unofficial guide for compsci students going through all the requirements and steps | https://www.reddit.com/r/UMD/comments/cj7oq4/wiki_project_a_guide_to_computer_science/ |
+| 2 | Schedule of Classes - CMSC1XX | 100-level CS courses | https://app.testudo.umd.edu/soc/search?courseId=CMSC1&sectionId=&termId=202608&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on |
+| 3 | Schedule of Classes - CMSC2XX| 200-level CS courses| https://app.testudo.umd.edu/soc/search?courseId=CMSC2&sectionId=&termId=202608&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on |
+| 4 | Schedule of Classes - CMSC3XX | 300-level CS courses | https://app.testudo.umd.edu/soc/search?courseId=CMSC3&sectionId=&termId=202608&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on |
+| 5 | Schedule of Classes - CMSC4XX | 400-level CS courses | https://app.testudo.umd.edu/soc/search?courseId=CMSC4&sectionId=&termId=202608&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on |
+| 6 | CMSC131 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC131/reviews |
+| 7 | CMSC132 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC132/reviews |
+| 8 | CMSC216 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC216/reviews |
+| 9 | CMSC250 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC250/reviews |
+| 10 | CMSC330 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC330/reviews |
+| 11 | CMSC351 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC351/reviews |
 
 ---
 
@@ -48,12 +51,19 @@
 
 **Chunk size:**
 
+1000 characters. 
+
 **Overlap:**
+
+250 characters. 
 
 **Why these choices fit your documents:**
 
+Semantic meaning spans multiple sentences in the case of reddit posts and course reviews. Maybe recursive chunking can be implemented given that the documents have specific headings and such. 
+
 **Final chunk count:**
 
+2739 chunks.
 ---
 
 ## Embedding Model
@@ -66,8 +76,11 @@
 
 **Model used:**
 
+Sentence-transformers --> all-MiniLM-L6-v2
+
 **Production tradeoff reflection:**
 
+The top 5 chunks should provide enough context but may miss some minute details that could be useful. 
 ---
 
 ## Grounded Generation
@@ -81,7 +94,11 @@
 
 **System prompt grounding instruction:**
 
+The system prompt instructs the LLM: "Answer questions ONLY based on the retrieved context provided below. If the context doesn't contain information to answer the question, respond with: 'I don't have any information on this.'" The prompt also explicitly asks the model to cite sources when referencing information, using the format: "According to [description] (source: [filename])".
+
 **How source attribution is surfaced in the response:**
+
+Sources are surfaced through two mechanisms: (1) The LLM is instructed to include source filenames and descriptions directly in the answer text when citing information, and (2) Low-relevance chunks (with cosine distance > 0.5) are filtered out before generation, ensuring only relevant sources are used. The retriever prints retrieved chunks with their distance scores, and the generator maintains this metadata through the pipeline so answers are always traceable to specific source files.
 
 ---
 
@@ -166,7 +183,7 @@ I asked Claude to be mindful of the distances of retrieved chunks. Essentially, 
 - *What I gave the AI:*
 implement get_collection() and embed_and_store(chunks) and retrieve(query, n_results) using chromaDB and sentence transformers all-MiniLM-L6-v2, the details are specified in planning.md and config.py.
 - *What it produced:*
-The methods in retriver.py.
+The methods in retriever.py.
 - *What I changed or overrode:*
 I played around with the number of results retrieved to see what would give a more relevant collection of contextual information.
 

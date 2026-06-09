@@ -43,11 +43,17 @@ The domain is computer science students navigating lower-level and upper-level c
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
 **Chunk size:**
+
 500 characters.
+
 **Overlap:**
+
 100 characters.
+
 **Reasoning:**
+
 Semantic meaning spans multiple sentences in the case of reddit posts and course reviews. Maybe recursive chunking can be implemented given that the documents have specific headings and such. 
+
 ---
 
 ## Retrieval Approach
@@ -59,11 +65,17 @@ Semantic meaning spans multiple sentences in the case of reddit posts and course
      support, accuracy on domain-specific text, latency? -->
 
 **Embedding model:**
+
 sentence-transformers --> all-MiniLM-L6-v2
+
 **Top-k:**
+
 Top 5 chunks will be retrieved.
+
 **Production tradeoff reflection:**
+
 The top 5 chunks should provide enough context but may miss some minute details that could be useful. 
+
 ---
 
 ## Evaluation Plan
@@ -118,8 +130,13 @@ The top 5 chunks should provide enough context but may miss some minute details 
      with my specified chunk size and overlap" is a plan. -->
 
 **Milestone 3 — Ingestion and chunking:**
+
 I'll give Claude my chunking strategy section and ask it to implement chunk_text() with my specified chunk size and overlap.
+
 **Milestone 4 — Embedding and retrieval:**
+
 I'll give Claude my embedding model and top-k and ask it to implement embed_and_store(). 
+
 **Milestone 5 — Generation and interface:**
+
 I'll specify how the prompt given to the LLM should be structured with both the grounding context and the user query and ask Clause to implement the generate() function, along with the UI to resemble a chatbot system. 
