@@ -1,0 +1,123 @@
+Wiki Project: A Guide to Computer Science
+Academic
+It’s taken longer than I expected, but I’ve finally written up a draft Wiki Guide To CS! For context, I graduated this past spring and accepted a software engineering job. During my undergrad I did on-campus research and several industry internships. I’ve written this mostly based off my own experience, online reading, and conversations with people I know. I recognize that everyone’s experience is unique and my perspective is just one of many, so if there’s anything you disagree with or would like to add, I’d love to take suggestions!
+
+Overview
+
+Computer science is one of the most popular majors at UMD. The CS program here has a strong reputation, and that combined with a strong job market for software engineers means that the program has grown rapidly in recent years. The CS department is housed in the Brendan Iribe Center, a brand-new building that opened in Spring 2019.
+
+Software engineering – i.e., working at a company designing and writing software – is the most common career path for CS graduates. There are many job opportunities available locally – government agencies and defense contractors have a big presence here, with Amazon coming soon! Many CS grads also end up going to tech hubs (e.g. SF, Seattle, NYC) to work at major software companies. There are also opportunities in research and academia, particularly in “hot” fields of CS such as data science and machine learning.
+
+As for as what the major entails – graduating with a CS degree should give you a strong programming foundation. However, computer science is about more than just programming, or even computers. It is the study of computing, answering questions like “What is possible to be computed?” or “How fast can something be computed?” This is reflected in the fact that the major has a significant theory component in addition to programming. Strong logical and analytical skills, as well as persistence, are helpful toward doing well in the major.
+
+The CS program offers two specializations, cybersecurity and data science, in addition to the general track. Specializations do restrict the upper-level courses you can take (in a major where seats in upper-level courses are fairly tight), so take that into account if you are considering a specialization.
+
+Required Introductory Courses
+
+Most people start off in either CMSC131 or CMSC132, depending on prior programming background.
+
+CMSC131 is intended to be a first “intro to programming” course, taught in Java. It covers basic programming constructs (if statements, loops, etc.) and object-oriented programming concepts. If you have prior programming knowledge, you can exempt out of 131 with either a score of 5 on AP CS or by taking an exemption exam. If you don’t have prior programming knowledge, I would recommend being selective about who you take this class with. A good professor can get you hooked on programming, while a bad one could make you feel lost and discouraged and want to quit the major after the first class. After this class, you will probably start to get a feel for whether you like programming or not.
+
+CMSC132 is, in my opinion, one of the most important classes in the major because it teaches you almost everything you need to know for technical interviews. It is a continuation of 131 but gets into more theoretical topics like data structures (linked lists, trees, heaps, etc.) and Big O notation. You learn how to implement the data structures and the situations in which they are useful. Many job and internship interviews simply require you to apply the content of 132 in a clever manner so definitely pay close attention in this class. You can also exemption-exam out of this class but for most people I’d recommend taking it unless you’re really confident about the material.
+
+CMSC216 switches gears to the venerable C programming language. C is a very old language and does much less behind-the-scenes magic than Java does, so you’ll get a better idea of what’s happening when you compile and run a program and you’ll learn how to manually manage memory. You’ll then learn some form of assembly language, which is a further step below C in terms of level of abstraction. Throughout the course you’ll be running stuff on a UNIX server (grace), so you’ll learn how to use the UNIX/Linux command line – an extremely important skill in many workplaces.
+
+CMSC250 is mostly a math course. Honestly I didn’t feel this class left a strong impression on me, but I remember we covered Boolean logic and did a lot of proofs by induction.
+
+CMSC330 is a very interesting class IMO. I think the primary purpose of the class is to simply get you exposed to a diverse set of programming languages that are substantially different in style and philosophy. The three languages currently taught are Ruby, OCaml, and Rust, with OCaml (functional programming) taking most of the time. Functional programming can be very mind-bending coming from object-oriented languages but many people find it very elegant once it clicks. You also learn regular expressions and the theory behind them, and a little bit about parsing as a preview to 430 (compilers). According to Anwar this class makes a lot of people feel like they’ve become a real computer scientist as opposed to just a programmer, which I think is a fair description. After this class you should be comfortable learning just about any programming language on your own.
+
+CMSC351 – algorithms – has a notorious reputation, particularly with Kruskal. Kruskal covered a lot of sorting algorithms and formally analyzed their runtimes, with a more rigorous definition of Big O from 132. Another important topic was graph algorithms (including Kruskal’s algorithm!) and NP completeness. Lots of people go into this class very worried about its difficulty but I really think it varies from person to person. The assignments and exams require some creativity to come up with efficient algorithms for doing things, which comes more naturally to some people. Despite its reputation, the failure rate of CMSC351 is about the same as other CS lower-levels. I found a good study group very helpful.
+
+Upper-level courses
+
+Once you pass 330 and 351, you are largely in control of your own experience for the remainder of your degree. You can take a lot of hard classes, or a lot of easy classes; you can take a lot of theory-heavy classes, or a lot of programming-heavy classes. This subreddit already has a ton of threads about the value and difficulty of most of the 400-level electives so I won’t bother to repeat that here. Off the top of my head I know 412 (operating systems) is known as the most difficult 400-level by far, and I heard 417 (networks) is also pretty difficult. Again, just search this subreddit for more details about any particular 400-level class. Choose classes based on your interests and desired difficulty level. Unfortunately, seat availability might affect your ability to get into a specific class so have some flexibility, especially at the beginning of your 400-levels.
+
+Beyond the degree
+
+I’ve split this section into three subsections – industry, Ph.D, and Master’s – to cover the main possibilities for what people might want to do after graduation. For each one I’ll talk about some of the things you can do as a student to improve your prospects.
+
+Industry
+
+As I mentioned previously, going to the industry to work as a software engineer is the most common outcome as a CS grad. The most valuable thing you can do as a student to land a good post-grad software engineering job is to do internships. Employers love students having internship experience because it shows that you’re capable of writing code in a professional environment, and that you can build more than just toy projects for class. Many (most?) companies will also extend return offers to interns who perform well, so if you play your internship cards well, you may not even have to go through a job search in your senior year! Conversely, graduating without any internships is likely to make your job search a lot more difficult. In my opinion you should start applying to internships as soon as you feel comfortable with the material in 132.
+
+There are many avenues through which you can land internships. Make sure you take advantage of the CS career fairs, especially the bigger one in fall when most companies are hiring for the coming summer. UMD being a “target school” for CS, we’re lucky to have a ton of major companies – including the “big 4” i.e. Google, Facebook, Microsoft, and Amazon – sending representatives here to recruit at the career fair and interview students on campus. You can also network through the various events that companies hold on campus.
+
+Outside of the career fair, there are many places where you can apply online, including job boards and directly on company websites. I’ve linked to some in the resources section below. But you should expect positive response rates to online applications to be very low (5% to 10% is normal), so apply far and wide. The internship search can be grueling and discouraging, especially as an underclassman. Not getting an internship as a freshman is totally normal and nothing to worry about, just do your best. It does get easier as you get closer to graduation.
+
+Not quite as good as internships but far better than nothing, is doing personal projects. Basically, just come up with an idea for something you want to build and build it. If you don’t know how, Google until you figure it out. It doesn’t have to be some completely new idea or the next Facebook – totally fine to start off with something simple like a todo list app or a personal website. The idea is to demonstrate that you can apply what you learned in class to build something real and have some talking points for your resume and interviews. If you aren’t getting bites on your internship applications because your resume is blank, personal projects are a great way to break that cycle. If you can’t work up the motivation to build a project, try going to a hackathon or two. Learn how to use Git and showcase your projects on Github. (But don’t post class projects to Github!)
+
+Ph.D
+
+I’ll preface this section by saying that a big chunk of this information comes from Prof. Dave Levin, particularly his “So you’re thinking about grad school” talk. If you are considering grad school or research, I would highly recommend talking to him or going to one of his grad school info sessions. He runs the CS departmental honors program and can give a lot of helpful advice on the topic of grad school.
+
+As far as I can tell, there are two very common reasons that people decide to do a Ph.D in CS:
+
+They love research and want a career in research. They want to be working on something new and cutting-edge all the time and have greater flexibility to choose what to work on. They may have tried doing software engineering in a company but discovered that most code written in companies is too mundane for their liking. They may be willing to take a pay cut to do more “interesting” research work, often in academia. A lot of professors here would fit this description.
+
+They are looking to break into a subfield of CS where most job positions actually require a Ph.D – the classic example of this being machine learning and related fields (computer vision, natural language processing, etc.)
+
+If you’re considering getting a Ph.D for some other reason, again I would recommend having a chat with Dave or some other CS professors to get some advice on whether it makes sense for you. Remember that getting a Ph.D is a huge time investment (5+ years) and comes with a large opportunity cost since you could be making a lot of money and climbing the ladder in a company during those years. You wouldn’t want to put in all that effort only to discover that you’re now overqualified for the jobs you want. If you just want more education before starting a job, consider a professional Masters.
+
+So let’s say you’ve established that you do want to get a Ph.D. How do you actually get admitted to a Ph.D program? Ph.D admissions generally works a lot differently than undergrad, removing the faceless “admissions committee” that is a staple of undergrad admissions. Instead, applications go into a database that professors can look through, and if a professor wants you to join their lab, you’re admitted. As a Ph.D student your #1 job will be to do research, so professors are primarily evaluating you on your potential to do research.
+
+For that reason, getting research experience as an undergrad is one of the best ways to strengthen your profile for Ph.D applications. Bonus points for co-authoring a published paper, and even more bonus points for first-authoring a paper. And if you present a paper at a conference, you’d be heads and shoulders above other applicants. Basically, the more you can show that you can do good research, the more confident professors reviewing your application will be about bringing you on.
+
+Another important part of Ph.D applications is recommendation letters. Most programs require at least three, so think about who you might be able to get letters from. Letters from professors who have directly supervised you in a research setting are the most valuable, followed by letters from professors who know you well personally (e.g. a professor you’ve TA’d for.) “Did well in class” letters are acceptable but not generally very compelling, so you want to avoid having all three letters be DWIC letters. Strong positive recommendations from esteemed faculty (“You’d be crazy not to accept this student!”) can override just about any weakness in an application, so try to make the most of your recommendation letters.
+
+Finally, your application will likely include a statement of purpose explaining your goals for getting a Ph.D, your undergraduate transcript, and GRE and TOEFL scores if applicable. You generally want your GPA and test scores as high as you can get them but research the institutions you are interested in to see if they have published cutoffs or averages. Application deadlines are usually around December of senior year.
+
+Master’s
+
+Master’s programs broadly come in two flavors, “research Master’s” and “professional Master’s.” Research Master’s programs are generally designed for people who plan to continue on to a Ph.D, while professional Master’s programs are designed for people who intend to start working afterward without doing a Ph.D. As the name implies, research Master’s programs typically involve a research component and often a Master’s thesis in addition to coursework. Professional Master’s programs tend to only require courses and therefore feel much like a continuation of undergrad.
+
+Why would one do a research Master’s or a professional Master’s? I’d say that a research Master’s makes sense if you aren’t sure whether you like research and want to try it out more before committing to a Ph.D, or if you feel your background and credentials aren’t good enough to apply for Ph.D programs and want some more time to strengthen your profile. But if you already know that you want a Ph.D and have the credentials to get into the Ph.D programs you want, I’d probably try to go straight for the Ph.D and skip the Master’s.
+
+A professional Master’s makes sense if you aren’t interested in doing a Ph.D or research but still want the credentials – basically you want “M.S.” in your title and on your resume. Some companies offer increased pay for MS grads and others don’t; whether the extra credential is worth it is your call to make.
+
+Admissions-wise, I would say that the criteria for research Master’s is broadly the same as for Ph.D, with the bar set somewhat lower for prior research experience. For a professional Master’s, I would say the importance of research experience goes down while the importance of having internships and industry experience goes up.
+
+Another option to consider is doing a part-time professional Master’s while working, especially if you’re going to work at a company that offers to subsidize tuition. Master’s programs are expensive because they are often cash cows for CS departments. So, having someone else foot the bill can be a good move. However, the downsides are that it will take longer to complete and your work/life balance may suffer.
+
+Finally, also consider UMD’s combined BS/MS program. This lets you take grad-level classes during undergrad and have them count toward the MS degree so that you can finish the MS with only 1-1.5 extra years. AFAIK it is fairly easy to get in and you get to skip the GRE, thus avoiding a lot of admissions-related stress.
+
+Resources
+
+Undergraduate research opportunities
+
+Even if you don’t intend to go to grad school, doing undergrad research can benefit you in a lot of ways. It can give you connections to professors who can write you recommendations, help you figure out what CS subfields you enjoy, give you course credit (CMSC499) or pay, and serve as a stepping stone to internships. Ask around to figure out what professors are looking for undergrad research assistants, or join the departmental honors program…
+
+Departmental honors program
+
+Related to undergrad research is the CS departmental honors program. It’s run by Dave Levin and Leilani Battle and intended to help undergrads try research, especially if you have no idea where to start. You can apply for it after you finish 216 and 250 assuming you meet the GPA requirement – 3.5 CS and 3.25 overall – and I believe most people are admitted. Once you’re in the requirements to complete are relatively light. You first take a 1-credit CMSC396H course where a bunch of professors guest-lecture about their research, to try to match students with professors. This class can be waived if you’ve already secured a professor to do research with on your own. Then you complete one semester of research with the professor via taking CMSC499, write a report (“honors thesis”) about what you did, take at least one grad-level or honors 4XXH class, and finally maintain your GPA above the requirement. The CMSC499 and grad-level class can both count for CS upper-level elective credit, so in theory you can complete departmental honors without increasing the number of classes you have to take, discounting the 1-credit 396H. For this you get a nice “departmental honors” mark on your transcript upon graduation.
+
+Note that the departmental honors website lists doing an “oral defense” as a requirement, but AFAIK this isn’t and has never been a thing, so I don’t know why it’s still listed 🤔
+
+Internship and job search resources
+
+https://intern.supply/ - an awesome site that maintains a large list of tech companies with reasonably good internship programs. It links directly to their application forms so you can spend more time applying and less time hunting around.
+
+https://leetcode.com/ - the classic technical interview prep site everyone loves to hate. Related is the famous green book, “Cracking the Coding Interview.”
+
+https://www.indeed.com/ - a standard job board that has a lot of software engineering and internship postings
+
+https://www.levels.fyi/ - detailed pay data for major tech companies.
+
+r/cscareerquestions – a.k.a. College Confidential for CS Majors. May give you stress and anxiety, but sometimes has useful information.
+
+https://www.pramp.com/#/ - a cool interview prep site I found that matches you with other interview preppers and you interview each other over video. Great way to practice coding under pressure.
+
+https://devpost.com/hackathons - schedule of upcoming hackathons.
+
+https://mlh.io/seasons/na-2020/events - another schedule of hackathons. You can also join the Terrapin Hackers FB group (not the page) to get information about buses to hackathons from UMD.
+
+https://education.github.com/pack - free developer tools for students.
+
+Some final bits of advice
+
+A problem I’ve heard about fairly frequently is first-time programmers getting intimidated seeing all the people coming in with prior programming experience and acting like they know everything. To that I will say that most of those people don’t know as much as they seem, and eventually you realize that this field is so unbelievably big that no one know anything and everyone’s just learning as much as they need to get by. I know a lot of people who have come in as freshmen with varying amounts of programming experience. Everyone struggled getting internships freshmen/sophomore year, but now approaching graduation they’re all doing just fine in the job search. Just give it some time.
+
+Imposter syndrome – feeling like you don’t deserve the job/internship/degree you got and you just got lucky somehow – is also somewhat rampant in this field. While there’s no “cure” for it, it is important to recognize and reassure yourself that you can do it. It’s okay and even healthy to feel slightly underqualified because if you already know everything you need to know, you aren’t learning anything new. CS is a field that requires continuous learning.
+
+Finally, don’t cheat, and especially don’t copy code. The CS department takes it seriously, it is automatically scanned for, and tons of people get busted every year.
+
+Good luck and enjoy your time at UMD. Classes and career are important, but so is making friends and having fun. Take it easy from time to time.

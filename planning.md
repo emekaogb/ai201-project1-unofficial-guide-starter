@@ -10,6 +10,7 @@
 ## Domain
 
 <!-- What domain did you choose? Why is this knowledge valuable and hard to find through official channels? -->
+The domain is computer science students navigating lower-level and upper-level courses at the University of Maryland.
 
 ---
 
@@ -20,16 +21,17 @@
 
 | # | Source | Description | URL or location |
 |---|--------|-------------|-----------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
-| 7 | | | |
-| 8 | | | |
-| 9 | | | |
-| 10 | | | |
+| 1 | Reddit (r/UMD) Wiki Guide for UMD CS Students | Unofficial guide for compsci students going through all the requirements and steps | https://www.reddit.com/r/UMD/comments/cj7oq4/wiki_project_a_guide_to_computer_science/ |
+| 2 | Schedule of Classes - CMSC1XX | 100-level CS courses | https://app.testudo.umd.edu/soc/search?courseId=CMSC1&sectionId=&termId=202608&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on |
+| 3 | Schedule of Classes - CMSC2XX| 200-level CS courses| https://app.testudo.umd.edu/soc/search?courseId=CMSC2&sectionId=&termId=202608&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on |
+| 4 | Schedule of Classes - CMSC3XX | 300-level CS courses | https://app.testudo.umd.edu/soc/search?courseId=CMSC3&sectionId=&termId=202608&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on |
+| 5 | Schedule of Classes - CMSC4XX | 400-level CS courses | https://app.testudo.umd.edu/soc/search?courseId=CMSC4&sectionId=&termId=202608&_openSectionsOnly=on&creditCompare=%3E%3D&credits=0.0&courseLevelFilter=ALL&instructor=&_facetoface=on&_blended=on&_online=on&courseStartCompare=&courseStartHour=&courseStartMin=&courseStartAM=&courseEndHour=&courseEndMin=&courseEndAM=&teachingCenter=ALL&_classDay1=on&_classDay2=on&_classDay3=on&_classDay4=on&_classDay5=on |
+| 6 | CMSC131 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC131/reviews |
+| 7 | CMSC132 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC132/reviews |
+| 8 | CMSC216 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC216/reviews |
+| 9 | CMSC250 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC250/reviews |
+| 10 | CMSC330 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC330/reviews |
+| 11 | CMSC351 Course Reviews from PlanetTerp | Self-explanatory | https://planetterp.com/course/CMSC351/reviews |
 
 ---
 
@@ -41,11 +43,11 @@
      A review-heavy corpus warrants different chunking than a long FAQ. -->
 
 **Chunk size:**
-
+500 characters.
 **Overlap:**
-
+100 characters.
 **Reasoning:**
-
+Semantic meaning spans multiple sentences in the case of reddit posts and course reviews. Maybe recursive chunking can be implemented given that the documents have specific headings and such. 
 ---
 
 ## Retrieval Approach
@@ -57,11 +59,11 @@
      support, accuracy on domain-specific text, latency? -->
 
 **Embedding model:**
-
+sentence-transformers --> all-MiniLM-L6-v2
 **Top-k:**
-
+Top 5 chunks will be retrieved.
 **Production tradeoff reflection:**
-
+The top 5 chunks should provide enough context but may miss some minute details that could be useful. 
 ---
 
 ## Evaluation Plan
@@ -73,11 +75,11 @@
 
 | # | Question | Expected answer |
 |---|----------|-----------------|
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
+| 1 | What is the first course I must take as a CS student at UMD? | CMSC131 |
+| 2 | What courses will help me with technical interviews? | CMSC132, CMSC351, CMSC451, etc. |
+| 3 | What upper level course can I take if I'm interested in networking and cloud computing? | CMSC417, STIC courses like CMSC398P |
+| 4 | Who are the best professors to take for CS courses in general? | Varied answers. |
+| 5 | What are the easiest 400-level classes to take? | Varied answers. |
 
 ---
 
@@ -87,9 +89,9 @@
      Consider: noisy or inconsistent documents, missing source attribution, off-topic
      retrieval, chunks that split key information across boundaries. -->
 
-1.
+1. For course reviews, some chunks may be mixing two reviews together or even more. For course descriptions, the same risk is present. 
 
-2.
+2. Review length and course description length are inconsistent, so implementing a fixed chunking strategy may prove difficult.
 
 ---
 
@@ -116,7 +118,8 @@
      with my specified chunk size and overlap" is a plan. -->
 
 **Milestone 3 — Ingestion and chunking:**
-
+I'll give Claude my chunking strategy section and ask it to implement chunk_text() with my specified chunk size and overlap.
 **Milestone 4 — Embedding and retrieval:**
-
+I'll give Claude my embedding model and top-k and ask it to implement embed_and_store(). 
 **Milestone 5 — Generation and interface:**
+I'll specify how the prompt given to the LLM should be structured with both the grounding context and the user query and ask Clause to implement the generate() function, along with the UI to resemble a chatbot system. 
