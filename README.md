@@ -132,6 +132,7 @@ Ingesting stage doesn't utilize documents that specify ease of upper-level cours
 **What you would change to fix it:**
 
 Use documents that rank classes based on difficulty maybe from a reddit post on the r/UMD subreddit made by a student, that has a lot of karma and support.
+
 ---
 
 ## Spec Reflection
@@ -146,6 +147,7 @@ Helped me understand what specific things I needed to ask Claude to include in i
 **One way your implementation diverged from the spec, and why:**
 
 I asked Claude to be mindful of the distances of retrieved chunks. Essentially, if a chunk is more than 0.5 distance away from the query, it doesn't get utilized. This hopefully keeps the response grounded in relevant sources.
+
 ---
 
 ## AI Usage
