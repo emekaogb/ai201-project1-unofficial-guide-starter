@@ -118,13 +118,13 @@
      results from an unrelated review" is an explanation. -->
 
 **Question that failed:**
-What are the easiest 400-level classes to take?
+- What are the easiest 400-level classes to take?
 **What the system returned:**
-I don't have any information on the easiest 400-level classes to take, as the context only mentions that classes like 412 (operating systems) and 417 (networks) are known to be difficult (source: reddit_guide.txt).
+- I don't have any information on the easiest 400-level classes to take, as the context only mentions that classes like 412 (operating systems) and 417 (networks) are known to be difficult (source: reddit_guide.txt).
 **Root cause (tied to a specific pipeline stage):**
-Ingesting stage doesn't utilize documents that specify ease of upper-level courses. 
+- Ingesting stage doesn't utilize documents that specify ease of upper-level courses. 
 **What you would change to fix it:**
-Use documents that rank classes based on difficulty maybe from a reddit post on the r/UMD subreddit made by a student, that has a lot of karma and support.
+- Use documents that rank classes based on difficulty maybe from a reddit post on the r/UMD subreddit made by a student, that has a lot of karma and support.
 ---
 
 ## Spec Reflection
@@ -133,9 +133,9 @@ Use documents that rank classes based on difficulty maybe from a reddit post on 
      Answer both questions with at least 2–3 sentences each. -->
 
 **One way the spec helped you during implementation:**
-Helped me understand what specific things I needed to ask Claude to include in its implementation of each stage in the pipeline. 
+- Helped me understand what specific things I needed to ask Claude to include in its implementation of each stage in the pipeline. 
 **One way your implementation diverged from the spec, and why:**
-I asked Claude to be mindful of the distances of retrieved chunks. Essentially, if a chunk is more than 0.5 distance away from the query, it doesn't get utilized. This hopefully keeps the response grounded in relevant sources.
+- I asked Claude to be mindful of the distances of retrieved chunks. Essentially, if a chunk is more than 0.5 distance away from the query, it doesn't get utilized. This hopefully keeps the response grounded in relevant sources.
 ---
 
 ## AI Usage
