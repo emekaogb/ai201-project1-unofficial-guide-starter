@@ -2,11 +2,11 @@ import warnings
 import logging
 import time
 import pdfplumber
+from config import DOCS_PATH
 
 warnings.filterwarnings("ignore", message=".*FontBBox.*")
 logging.getLogger("pdfminer").setLevel(logging.ERROR)
 
-DIRECTORY = "./documents/"
 PDF_FILES = [
     "CMSC131 _ PlanetTerp.pdf",
     "CMSC132 _ PlanetTerp.pdf",
@@ -23,8 +23,8 @@ TEXT_FILES = [
     "reddit_guide.txt",
 ]
 
-CHUNK_SIZE = 500
-CHUNK_OVERLAP = 100
+CHUNK_SIZE = 1000
+CHUNK_OVERLAP = 250
 
 
 def load_documents():
@@ -36,7 +36,7 @@ def load_documents():
 
     # Load PDF files
     for i, filename in enumerate(PDF_FILES, 1):
-        filepath = DIRECTORY + filename
+        filepath = DOCS_PATH + '/' + filename
         try:
             file_start = time.time()
             with pdfplumber.open(filepath) as pdf:
@@ -57,7 +57,7 @@ def load_documents():
 
     # Load text files
     for i, filename in enumerate(TEXT_FILES, 1):
-        filepath = DIRECTORY + filename
+        filepath = DOCS_PATH + '/' + filename
         try:
             file_start = time.time()
             with open(filepath, "r", encoding="utf-8") as f:
@@ -134,7 +134,7 @@ if __name__ == "__main__":
         print("First chunk example:")
         print(f"  Filename: {chunks[0]['filename']}")
         print(f"  Chunk index: {chunks[0]['chunk_index']}")
-        print(f"  Text (first 100 chars): {chunks[0]['text'][:100]}...\n")
+        print(f"  Text (first 500 chars): {chunks[0]['text'][:500]}...\n")
 
     total_time = time.time() - total_start
     print(f"Total pipeline time: {total_time:.2f}s")
