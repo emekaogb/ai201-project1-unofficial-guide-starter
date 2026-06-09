@@ -64,6 +64,7 @@ Semantic meaning spans multiple sentences in the case of reddit posts and course
 **Final chunk count:**
 
 2739 chunks.
+
 ---
 
 ## Embedding Model
@@ -81,6 +82,7 @@ Sentence-transformers --> all-MiniLM-L6-v2
 **Production tradeoff reflection:**
 
 The top 5 chunks should provide enough context but may miss some minute details that could be useful. 
+
 ---
 
 ## Grounded Generation
