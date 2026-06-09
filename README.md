@@ -93,11 +93,11 @@
 
 | # | Question | Expected answer | System response (summarized) | Retrieval quality | Response accuracy |
 |---|----------|-----------------|------------------------------|-------------------|-------------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 | What is the first course I must take as a CS student at UMD? | CMSC131 | CMSC131 and CMSC132 | Relevant | Partially accurate |
+| 2 | What courses will help me with technical interviews? | CMSC351, CMSC451, CMSC389O | CMSC389O | Relevant | Partially accurate |
+| 3 | What upper level course can I take if I'm interested in networking and cloud computing? | CMSC417, CMSC398P, etc. | CMSC398P | Relevant | Partially accurate |
+| 4 | 	Who are the best professors to take for CS courses in general? | Varied answers. | Nelson Padua-Perez, Mohammed Nayeem Teli, Chau-Wen Tseng, Elias Gonzalez, Fawzi Emad | Relevant | Accurate |
+| 5 | What are the easiest 400-level classes to take? | Varied answers. |  Not enough information, but hardest courses are 412 (OS) and 417 (Networks) | Partially relevant | Inaccurate (not enough context given through docs) |
 
 **Retrieval quality:** Relevant / Partially relevant / Off-target  
 **Response accuracy:** Accurate / Partially accurate / Inaccurate
@@ -118,13 +118,13 @@
      results from an unrelated review" is an explanation. -->
 
 **Question that failed:**
-
+What are the easiest 400-level classes to take?
 **What the system returned:**
-
+I don't have any information on the easiest 400-level classes to take, as the context only mentions that classes like 412 (operating systems) and 417 (networks) are known to be difficult (source: reddit_guide.txt).
 **Root cause (tied to a specific pipeline stage):**
-
+Ingesting stage doesn't utilize documents that specify ease of upper-level courses. 
 **What you would change to fix it:**
-
+Use documents that rank classes based on difficulty maybe from a reddit post on the r/UMD subreddit made by a student, that has a lot of karma and support.
 ---
 
 ## Spec Reflection
@@ -133,9 +133,9 @@
      Answer both questions with at least 2–3 sentences each. -->
 
 **One way the spec helped you during implementation:**
-
+Helped me understand what specific things I needed to ask Claude to include in its implementation of each stage in the pipeline. 
 **One way your implementation diverged from the spec, and why:**
-
+I asked Claude to be mindful of the distances of retrieved chunks. Essentially, if a chunk is more than 0.5 distance away from the query, it doesn't get utilized. This hopefully keeps the response grounded in relevant sources.
 ---
 
 ## AI Usage
@@ -152,11 +152,17 @@
 **Instance 1**
 
 - *What I gave the AI:*
+implement get_collection() and embed_and_store(chunks) and retrieve(query, n_results) using chromaDB and sentence transformers all-MiniLM-L6-v2, the details are specified in planning.md and config.py.
 - *What it produced:*
+The methods in retriver.py.
 - *What I changed or overrode:*
+I played around with the number of results retrieved to see what would give a more relevant collection of contextual information.
 
 **Instance 2**
 
 - *What I gave the AI:*
+implement the generate() function so that the chunks are labeled by file name and include distance scores. Make sure that the system knows not to answer from beyond the retrieved text, say "I don't have any information on this" or something like that. If the distance scores retrieved are too high (maybe more than 0.5?), then they shouldn't be used either.
 - *What it produced:*
+The methods in generator.py.
 - *What I changed or overrode:*
+I played around with the threshold to see what gave more accurate responses. 
